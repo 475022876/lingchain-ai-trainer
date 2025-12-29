@@ -2,7 +2,8 @@ export type TrainingType =
   | "worldview"
   | "tone"
   | "rule"
-  | "forbidden";
+  | "forbidden"
+  | "tools";
 
 export interface TrainingItem {
   id: string;
