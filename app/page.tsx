@@ -7,6 +7,7 @@ const TRAINING_TYPES = [
   { value: "tone", label: "语气 · 表达风格" },
   { value: "rule", label: "行为规则 · 原则" },
   { value: "forbidden", label: "禁止事项 · 红线" },
+  { value: "tools", label: "工具推荐 · Indie Hacker" },
 ];
 
 const C = {

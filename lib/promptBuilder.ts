@@ -1,5 +1,5 @@
 type TrainingRow = {
-  type: "worldview" | "rule" | "tone" | "forbidden";
+  type: "worldview" | "rule" | "tone" | "forbidden" | "tools";
   content: string;
 };
 
@@ -9,6 +9,7 @@ export function buildSystemPrompt(rows: TrainingRow[]) {
     rule: [],
     tone: [],
     forbidden: [],
+    tools: [],
   };
 
   rows.forEach((row) => {
@@ -38,6 +39,12 @@ export function buildSystemPrompt(rows: TrainingRow[]) {
   if (sections.forbidden.length) {
     prompt += `【禁止事项】\n`;
     sections.forbidden.forEach((t) => (prompt += `- ${t}\n`));
+    prompt += `\n`;
+  }
+
+  if (sections.tools.length) {
+    prompt += `【推荐工具】\n`;
+    sections.tools.forEach((t) => (prompt += `- ${t}\n`));
     prompt += `\n`;
   }
 
